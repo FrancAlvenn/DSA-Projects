@@ -13,7 +13,7 @@ public class DSA_CollaborativeWork_AlicesLibrary {
                 stack.push(parts);
             }
         }
-        
+
         return stack;
     }
     
