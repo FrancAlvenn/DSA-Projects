@@ -1,10 +1,7 @@
 package dsa.activity;
 import java.util.*;
 public class DSA_CollaborativeWork_AlicesLibrary {
-    
-    
-    
-    
+
     static Stack pushBooks (Stack stack, String[] part){
         
         // push individual values onto the stack
@@ -13,7 +10,6 @@ public class DSA_CollaborativeWork_AlicesLibrary {
                 stack.push(parts);
             }
         }
-
         return stack;
     }
     
@@ -21,10 +17,12 @@ public class DSA_CollaborativeWork_AlicesLibrary {
         Scanner input = new Scanner(System.in);
         Stack<String> stackOfBooks = new Stack<>();
         String book;
+        String[] parts = null;
         
+        int _loop = 0;
+        while (_loop <= 2){
         System.out.println("ALICE'S LIBRARY");
         System.out.println("""
-                           \n
                            NOTE: Opening and closing walls of shelves are shown by
                                  '/' and '\\\' respectively whereas books are represented by 
                                  lower case alphabets.
@@ -37,7 +35,15 @@ public class DSA_CollaborativeWork_AlicesLibrary {
         book = book.replaceAll("^/|/$", "");
 
         // split the string using regular expression
-        String[] parts = book.split("[/\\\\]");
+        parts = book.split("[/\\\\]");
+        
+        
+        _loop = parts.length;
+        if(_loop > 2) break;
+        System.out.println("---------------------------------------------------------");
+        System.out.println("INVALID. There must be at least 3 books in Alice's Library!");
+        System.out.println("---------------------------------------------------------");
+        }
         
         //function call
         pushBooks(stackOfBooks,parts);
