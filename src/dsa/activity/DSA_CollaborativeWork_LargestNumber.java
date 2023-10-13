@@ -35,9 +35,14 @@ public class DSA_CollaborativeWork_LargestNumber {
         System.out.println("--------------------------------------------");
         System.out.print("Input the value of number: ");
         number = input.nextInt();
-        System.out.print("Input number of items to remove: ");
-        noOfItemsToRemove = input.nextInt();
-        System.out.println("--------------------------------------------");
+        
+        while (number < 1){
+            System.out.println("Invalid. Integer must be greater than 0.");
+            System.out.print("\nInput an integer: ");
+            number = input.nextInt();
+            System.out.println("--------------------------------------------");
+        }
+        
         
         //function call
         int[] array = intToArray(number);
@@ -46,6 +51,17 @@ public class DSA_CollaborativeWork_LargestNumber {
         for(int i = 0;i<array.length;i++){
             stack.push(array[i]);
         }
+        
+        System.out.print("Input number of items to remove: ");
+        noOfItemsToRemove = input.nextInt();
+        System.out.println("--------------------------------------------");
+        
+        while (noOfItemsToRemove < 0 || noOfItemsToRemove >= stack.size()-1){
+                    System.out.println("Input must be between 0 and " + (stack.size()));
+                    System.out.print("Input number of items to remove: ");
+                    noOfItemsToRemove = input.nextInt();
+                    System.out.println("--------------------------------------------");
+                }
         
         //pop stack based on noOfItemsToRemove
         for(int j = 0; j < noOfItemsToRemove; j++){
