@@ -1,6 +1,6 @@
 package dsa.activity;
 import java.util.*;
-public class DSA_CollaborativeWork_LargestNumber {
+public class DSA_CollaborativeWork_LargestNumber_FrancAlvennDelaCruz {
     
     /*
     Change the class name to the class name of you java class as well as

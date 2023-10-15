@@ -15,7 +15,7 @@ public class DSA_CollaborativeWork_StacksAndQueue_RowellCruz {
                 frontValue[i-1] += queue.peek();
                 queue.add(queue.poll());
             }
-            for(int j = 0; j < (N - K); j++){
+            for(int j = N - K; j < N-1; j++){
                 queue.add(queue.poll());
             }
             for(int j = 0; j < (K - i); j++){
