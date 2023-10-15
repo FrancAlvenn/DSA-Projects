@@ -5,51 +5,70 @@ import java.util.*;
 
 
 public class DSA_CollaborativeWork_Test {
-     public static void main(String[] args) {
-        int n;
-        int k;
-        int sumOfK = 0, sum = 0;
-        int max = 0;
-        Scanner input = new Scanner(System.in);
 
+     public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+        int sizeOfArray;
+        int noOfItemsToRemove = 0;
+        int sumOfStack = 0;
+        int sumOfQueue = 0;
+        int maxValue = 0;
+        
+        //declaration of stack and queue
+        Stack<Integer> stack = new Stack<>();
+        Queue<Integer> queue = new LinkedList<>();
+        
         System.out.println("STACKS AND QUEUES (NISSAN)");
         System.out.println("---------------------------------------------------------");
-        System.out.print("Please enter the size of the stack: ");
-        n = input.nextByte();
-        System.out.print("Please enter the number of items: ");
-        k = input.nextInt();
+        System.out.print("Please enter the size of the collection: ");
+        sizeOfArray = input.nextByte();
+        
+        System.out.print("Please enter the number of items to remove: ");
+        noOfItemsToRemove = input.nextInt();
+        
+        while (noOfItemsToRemove > sizeOfArray){
+            System.out.println("INVALID. The number of items to remove must be less than the size of the collection.");
+            System.out.print("\nPlease enter the number of items to remove: ");
+            noOfItemsToRemove = input.nextInt();
+            System.out.println("---------------------------------------------------------");
+        }
         
         
+        int[] array = new int[sizeOfArray];
         
-        Stack<Integer> stack = new Stack<>();
-        for(int i = 0;i < n;i++){
+        //loop to get value of array
+        for(int i = 0;i<sizeOfArray;i++){
             System.out.print("Please enter a value: ");
             int _temp = input.nextInt();
-            stack.push(_temp);
-            if(i >= n-k){
-                sumOfK += stack.peek();
-            }
-        } 
-        
-        int[] array = stackToIntArray(stack);
-        for(int i = 0; i < k; i++){
-	            sum += array[i];
-	            sumOfK -= array[n-k+i];
-	            max = Math.max(max,sum+sumOfK);
-	        }
-        
-        System.out.println("The Maximum value is: " + max);
-        
-    }
-     
-    public static int[] stackToIntArray(Stack<Integer> stack) {
-        int[] result = new int[stack.size()];
-        int index = 0;
-
-        while (!stack.isEmpty()) {
-            result[index++] = stack.pop();
+            array[i] = _temp;
+            if(i >= sizeOfArray-noOfItemsToRemove) sumOfQueue += array[i];
         }
+        
+        //loop to push and add value to stack and queue
+        for(int i = array.length -1; i>=0;i--){
+            stack.push(array[i]);  
+        }
+        
+        //loop to get queue set from the value of k
+        for(int i = sizeOfArray-noOfItemsToRemove; i<= array.length - 1;i++){
+            queue.add(array[i]);
+        }
+        
+        //loop to get sum
+        for(int i = 0; i < noOfItemsToRemove; i++){
+                    //get value from stack
+	            sumOfStack += stack.pop();
+                    //get value from queue
+	            sumOfQueue -= queue.poll();
+	            maxValue = Math.max(maxValue,sumOfStack+sumOfQueue);
+	        }
 
-        return result;
+        System.out.println("---------------------------------------------------------");
+         System.out.println("The highest sum possible from the removed items is: " + maxValue);
+         
+         
     }
+
+
 }

@@ -25,7 +25,7 @@ public class DSA_CollaborativeWork_StacksAndQueueNissan {
             int _temp = input.nextInt();
             array[i] = _temp;
             if(i >= n-k) sumOfK += array[i];
-        } 
+        }
 
         
         for(int i = 0; i < k; i++){
