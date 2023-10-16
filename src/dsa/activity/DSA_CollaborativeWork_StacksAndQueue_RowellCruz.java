@@ -15,7 +15,7 @@ public class DSA_CollaborativeWork_StacksAndQueue_RowellCruz {
                 frontValue[i-1] += queue.peek();
                 queue.add(queue.poll());
             }
-            for(int j = N - K; j < N-1; j++){
+            for(int j = 0; j < (N - K); j++){
                 queue.add(queue.poll());
             }
             for(int j = 0; j < (K - i); j++){
@@ -39,7 +39,8 @@ public class DSA_CollaborativeWork_StacksAndQueue_RowellCruz {
 	public static void main(String[] args) {
 	    //Declaration of Scanner, Stack, and Queue
         Scanner scanner = new Scanner(System.in);
-        Stack<Integer> stk = new Stack<>();
+        Stack<Integer> stk1 = new Stack<>();
+        Stack<Integer> stk2 = new Stack<>();
         Queue<Integer> queue = new LinkedList<>();
         
         //Getting the Value for N and K or Stack Size and Elements to be removed
@@ -51,10 +52,11 @@ public class DSA_CollaborativeWork_StacksAndQueue_RowellCruz {
         //Getting the N elements for Stack
         for(int i = 0; i < N; i++){
             System.out.print("Enter element: ");
-            stk.push(scanner.nextInt());
+            stk1.push(scanner.nextInt());
         }
+        for( ; !stk1.isEmpty(); ) stk2.push(stk1.pop());
         
-        convertStackToQueue(stk, queue, N);
+        convertStackToQueue(stk2, queue, N);
         System.out.print("Maximum Value: " + getMaxSum(queue, N, K));
         
 	}

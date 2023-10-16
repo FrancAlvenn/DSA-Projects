@@ -67,7 +67,7 @@ public class DSA_CollaborativeWork_StacksAndQueueNissan_FrancAlvennDelaCruz {
         System.out.println("---------------------------------------------------------");
          System.out.println("The highest sum possible from the removed items is: " + maxValue);
          
-         
+          
     }
 
 
