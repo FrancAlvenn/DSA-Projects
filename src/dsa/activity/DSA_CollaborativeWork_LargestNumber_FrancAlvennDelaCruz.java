@@ -11,7 +11,6 @@ public class DSA_CollaborativeWork_LargestNumber_FrancAlvennDelaCruz {
     
     The second input should not be equal or greater than the length of the 
     first input
-    
     */
     
     
@@ -56,8 +55,8 @@ public class DSA_CollaborativeWork_LargestNumber_FrancAlvennDelaCruz {
         noOfItemsToRemove = input.nextInt();
         System.out.println("--------------------------------------------");
         
-        while (noOfItemsToRemove < 0 || noOfItemsToRemove >= stack.size()-1){
-                    System.out.println("Input must be between 0 and " + (stack.size()));
+        while (noOfItemsToRemove < 0 || noOfItemsToRemove > array.length){
+                    System.out.println("Input must be between 0 and " + (array.length));
                     System.out.print("Input number of items to remove: ");
                     noOfItemsToRemove = input.nextInt();
                     System.out.println("--------------------------------------------");
